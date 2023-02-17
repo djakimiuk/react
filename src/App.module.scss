@@ -1,0 +1,10 @@
+.appWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.columnsWrapper {
+  display: flex;
+  height: calc(100vh - 100px);
+}
