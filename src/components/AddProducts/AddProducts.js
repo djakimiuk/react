@@ -49,7 +49,7 @@ function AddProducts({ submitProduct }) {
       ></input>
       <button
         onClick={handleClick}
-        disabled={!productName && !productCategory}
+        disabled={(!productName || !productCategory)}
       >
         Dodaj produkt
       </button>
