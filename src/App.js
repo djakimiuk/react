@@ -9,9 +9,11 @@ import { useState } from "react";
 function App() {
   const [shoppingList, setShoppingList] = useState([]);
   const [productsToDisplay, setProductsToDisplay] = useState(produkty);
+  const [products, setProducts] = useState(produkty);
+
   const handleAddItem = (index) => {
     setShoppingList(
-      shoppingList.concat({ ...produkty[index], completion: false })
+      shoppingList.concat({ ...products[index], completion: false })
     );
     console.log(shoppingList);
   };
@@ -27,11 +29,20 @@ function App() {
     arrCopy[index] = product;
     setShoppingList(arrCopy);
   };
+  const handleNewProduct = (productName, productCategory, foodProduct) => {
+    const newProduct = {
+      nazwa: productName,
+      kategoria: productCategory,
+      produktSpozywczy: foodProduct,
+    };
+    setProducts(products.concat(newProduct));
+  };
+
   return (
     <div className={styles.appWrapper}>
-      <AddProducts products={produkty} />
+      <AddProducts products={products} submitProduct={handleNewProduct} />
       <ProductsFilters
-        products={produkty}
+        products={products}
         setFilteredProducts={setProductsToDisplay}
       />
       <div className={styles.columnsWrapper}>
