@@ -47,10 +47,7 @@ function AddProducts({ submitProduct }) {
         checked={foodProduct}
         onChange={handleFoodProduct}
       ></input>
-      <button
-        onClick={handleClick}
-        disabled={(!productName || !productCategory)}
-      >
+      <button onClick={handleClick} disabled={!productName || !productCategory}>
         Dodaj produkt
       </button>
     </div>
